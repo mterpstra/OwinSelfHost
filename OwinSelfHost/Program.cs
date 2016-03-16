@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Owin.Hosting;
 using System.IO;
+using System.Threading;
 
 namespace OwinSelfHost
 {
@@ -20,12 +21,13 @@ namespace OwinSelfHost
             using (WebApp.Start<Startup>(owinhost))
             {
                 Console.WriteLine("Web Server is running on:" + owinhost);
-                Console.WriteLine("Press any key to quit.");
-                Console.ReadLine();
+		string readVal = Console.ReadLine();
+		while (string.IsNullOrEmpty(readVal))
+		{
+			Thread.Sleep(5000);
+			readVal = Console.ReadLine();
+		}
             }
-
-            Console.WriteLine("And again...");
-            Console.ReadLine();
         }
     }
 }
