@@ -25,19 +25,17 @@ namespace OwinSelfHost
         }
 
         // POST api/values 
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Dictionary<string,string> body)
         {
-            Console.WriteLine("POST Body: " + value);
-            Dictionary<string, string> json = JsonConvert.DeserializeObject<Dictionary<string, string>>(value);
-            values.Add(json["value"]);
+            Console.WriteLine("POST");
+            values.Add(body["value"]);
         }
 
         // PUT api/values/5 
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Dictionary<string,string> body)
         {
-            Console.WriteLine("PUT Body: " + value);
-            Dictionary<string, string> json = JsonConvert.DeserializeObject<Dictionary<string, string>>(value);
-            values[id] = json["value"];
+            Console.WriteLine("PUT");
+            values[id] = body["value"];
         }
 
         // DELETE api/values/5 
