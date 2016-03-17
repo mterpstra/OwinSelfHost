@@ -1,0 +1,12 @@
+branch-defaults:
+  development:
+    environment: owinselfhost-dev
+  qa:
+    environment: owinselfhost-qa
+global:
+  application_name: OwinSelfHost
+  default_ec2_keyname: null
+  default_platform: 64bit Amazon Linux 2015.09 v2.0.8 running Docker 1.9.1
+  default_region: us-west-2
+  profile: eb-cli
+  sc: git
