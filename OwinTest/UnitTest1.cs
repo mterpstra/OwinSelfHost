@@ -21,21 +21,24 @@ namespace OwinTest
     [TestClass]
     public class UnitTest1
     {
-        IDisposable server;
-        HttpClient httpclient;
-
-        public UnitTest1()
+        static IDisposable server = null;
+        static HttpClient httpclient = null;
+             
+        [AssemblyInitialize()]
+        public static void AssemblyInit(TestContext context)
         {
             // @TODO: This should be an environment variable with some default value.
             string hostAndPort = "http://localhost:12345";
-            this.server = WebApp.Start<Startup>(hostAndPort);
-            this.httpclient = new HttpClient() { BaseAddress = new Uri(hostAndPort) };
+            UnitTest1.server = WebApp.Start<Startup>(hostAndPort);
+            UnitTest1.httpclient = new HttpClient() { BaseAddress = new Uri(hostAndPort) };
         }
 
-        ~UnitTest1()
+        [AssemblyCleanup()]
+        public static void AssemblyCleanup()
         {
-            this.server.Dispose();
+            UnitTest1.server.Dispose();
         }
+        
 
         [TestMethod]
         public async Task TestGetValues()
