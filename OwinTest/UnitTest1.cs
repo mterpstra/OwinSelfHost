@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using OwinSelfHost;
-using Microsoft.Owin.Testing;
 using Microsoft.Owin.Hosting;
 using System.Net.Http;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace OwinTest
 {
