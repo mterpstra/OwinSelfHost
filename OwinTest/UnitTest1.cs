@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OwinSelfHost;
 using Microsoft.Owin.Testing;
 using Microsoft.Owin.Hosting;
