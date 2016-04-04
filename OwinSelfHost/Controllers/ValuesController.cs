@@ -8,7 +8,7 @@ namespace OwinSelfHost
 {
     public class ValuesController : ApiController
     {
-        protected static List<string> values = new List<string>(new string[]{"VALUE 0", "VALUE 1", "VALUE 2"});
+        protected static List<string> values = new List<string>(new string[]{"Value 00", "Value 01", "Value 02"});
 
         // GET api/values 
         public IEnumerable<string> GetAllValues()
